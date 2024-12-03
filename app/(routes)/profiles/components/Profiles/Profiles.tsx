@@ -1,26 +1,47 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { ProfilesProps } from "./Profiles.types";
-import AddProfile from "./AddProfile/AddProfile";
+import axios from "axios";
+import { Trash2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
+import { toast } from "@/hooks/use-toast";
+import { Button } from "@/components/ui/button";
+import { ProfilesProps } from "./Profiles.types";
+import AddProfile from "./AddProfile/AddProfile";
 import {
   AlertDialog,
   AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Trash } from "lucide-react";
+
 
 const Profiles = (props: ProfilesProps) => {
+  const router = useRouter();
   const { users } = props;
   const [manageProfiles, setManageProfiles] = useState(false);
+  const deleteUser = async (userIdNetflix: string) => {
+    try {
+      axios.delete("/api/userNetflix", { data: { userIdNetflix } });
+      setManageProfiles(false);
+      router.refresh();
+      toast({
+        title: "¡Usuario eliminado correctamente!",
+      })
+     
+    } catch (error) {
+      console.log(error);
+      toast({
+        title: "Ops! Ha ocurrido un error",
+        variant: "destructive",
+      });
+    }
+  };
   console.log({ users });
   return (
     <div>
@@ -49,18 +70,21 @@ const Profiles = (props: ProfilesProps) => {
               <AlertDialog>
                 <AlertDialogTrigger asChild>
                   <div className="bg-white rounded-full p-1 hover:bg-red-100">
-                    <Trash className="w-6 h-6 text-red-500" />
+                    <Trash2 className="w-6 h-6 text-red-500" />
                   </div>
                 </AlertDialogTrigger>
                 <AlertDialogContent className="bg-zinc-900">
                   <AlertDialogHeader>
                     <AlertDialogTitle>
                       Are you absolutely sure you want to delete this profile?
-                    </AlertDialogTitle>                   
+                    </AlertDialogTitle>
                   </AlertDialogHeader>
                   <AlertDialogFooter>
                     <AlertDialogCancel>Go Back</AlertDialogCancel>
-                    <AlertDialogAction className="bg-red-500 border-red-500 border" onClick={() => console.log("hola")}></AlertDialogAction>
+                    <AlertDialogAction
+                      className="bg-red-500 border-red-500 border"
+                      onClick={() => deleteUser(user.id)}
+                    >Delete</AlertDialogAction>
                   </AlertDialogFooter>
                 </AlertDialogContent>
               </AlertDialog>
