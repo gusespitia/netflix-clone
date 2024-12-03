@@ -14,7 +14,7 @@ import SelectorProfile from "@/components/shared/SelectorProfile/SelectorProfile
 const NavbarDesktop = (props: NavbarDesktopProps) => {
   const { users } = props;
   const scrollPosition = useScrollPosition();
-  console.log(scrollPosition);
+
   return (
     <div
       className={cn(

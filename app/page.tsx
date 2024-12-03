@@ -24,8 +24,7 @@ export default async function Home() {
       ranking: "asc"
     }
   });
-  console.log(trendingMovies);
-  console.log(movies);
+
   return (
     <div className="relative bg-zinc-900">
       <Navbar users={usersNetflix} />
