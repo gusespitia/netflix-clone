@@ -2,17 +2,20 @@ import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 import NavbarFilm from "./components/NavbarFilm/NavbarFilm";
 import MovieVideo from "./components/NavbarFilm/MovieVideo/MovieVideo";
+
 export default async function MovieIdPage({
-  params,
+  params: rawParams,
 }: {
-  params: { movieId: string };
+  params: Promise<{ movieId: string }>; // Explicitly treat params as a Promise
 }) {
-  
+  const params = await rawParams; // Await the params to resolve
+
   const movieFilm = await db.movie.findUnique({
     where: {
       id: params.movieId,
     },
   });
+
   const popularMovie = await db.popularMovie.findUnique({
     where: {
       id: params.movieId,
@@ -20,8 +23,9 @@ export default async function MovieIdPage({
   });
 
   if (!movieFilm && !popularMovie) {
-     redirect("/");
+    redirect("/");
   }
+
   const currentMovie = movieFilm
     ? movieFilm.movieVideo
     : popularMovie
@@ -32,8 +36,11 @@ export default async function MovieIdPage({
     : popularMovie
     ? popularMovie.title
     : "";
-  return <div className="h-screen w-full bg-black">
-   <NavbarFilm titleMovie={titleMovie}/>
-   <MovieVideo currentMovie={currentMovie} />
-    </div>;
+
+  return (
+    <div className="h-screen w-full bg-black">
+      <NavbarFilm titleMovie={titleMovie} />
+      <MovieVideo currentMovie={currentMovie} />
+    </div>
+  );
 }
