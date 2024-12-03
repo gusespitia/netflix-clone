@@ -3,7 +3,7 @@
 import { useLovedFilms } from "@/hooks/use-loved-films";
 import { useCurrentNetflixUser } from "@/hooks/use-current-user";
 
-import { BlockMovies } from "@/components/Shared/BlockMovies";
+import { BlockMovies } from "@/components/shared/BlockMovies";
 
 import { ListMoviesProps } from "./ListMovies.types";
 

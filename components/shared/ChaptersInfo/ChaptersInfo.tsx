@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { ChaptersInfoProps } from "./ChaptersInfo.types";
 
+
 export function ChaptersInfo(props: ChaptersInfoProps) {
   const { age, duration } = props;
 

@@ -5,6 +5,7 @@ import Navbar from "@/components/shared/Navbar/Navbar";
 import { SliderVideo } from "./(routes)/(home)/components/SliderVideo";
 import { auth } from "@/auth";
 import { TrendingMovies } from "./(routes)/(home)/components/TrendingMovies";
+import { ListMovies } from "./(routes)/(home)/components/ListMovies";
 
 
 export default async function Home() {
@@ -30,6 +31,7 @@ export default async function Home() {
       <Navbar users={usersNetflix} />
       <SliderVideo />
       <TrendingMovies movies={trendingMovies} />
+      <ListMovies movies={movies} />
     </div>
   );
 }
