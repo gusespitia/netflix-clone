@@ -1,11 +1,13 @@
 "use client";
 import dynamic from "next/dynamic";
 
-import { ActionsButtonsFilm } from "@/components/Shared/ActionsButtonsFilm";
+import { ActionsButtonsFilm } from "@/components/shared/ActionsButtonsFilm";
 
 import { InfoExtraFilmProps } from "./InfoExtraFilm.types";
-import { ChaptersInfo } from "@/components/Shared/ChaptersInfo";
-import { FilmGenres } from "@/components/Shared/FilmGenres";
+
+import { FilmGenres } from "@/components/shared/FilmGenres";
+
+import { ChaptersInfo } from "@/components/shared/ChaptersInfo";
 
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 

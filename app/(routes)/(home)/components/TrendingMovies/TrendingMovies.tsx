@@ -23,7 +23,7 @@ export function TrendingMovies(props: TrendingMoviesProps) {
               group-hover:opacity-90 delay-300 w-full justify-center"
               >
                 <Image
-                  src={`https://raw.githubusercontent.com/ratasi/images-netflix-clone/refs/heads/main/ranking/${movie.ranking}.png`}
+                  src={`https://raw.githubusercontent.com/gusespitia/netflix-clone/refs/heads/main/data/ranking/${movie.ranking}.png`}
                   alt="Number"
                   width={116}
                   height={150}
