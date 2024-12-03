@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button"
+
 import {
   Dialog,
   DialogContent,
@@ -7,51 +7,35 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+} from "@/components/ui/dialog";
+
+import { PlusCircle } from "lucide-react";
+
+import { useState } from "react";
+import FormAddProfile from "../../FormAddProfile/FormAddProfile";
 
 export default function AddProfile() {
+  const [open, setOpen] = useState(false);
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
+        <div className="group cursor-pointer">
+          <div className="w-[140px] h-[140px] flex flex-col justify-center items-center group-hover:bg-slate-300 rounded-md">
+            <PlusCircle className="w-16 h-16 text-gray-500" />
+          </div>
+          <p className="text-gray-500 uppercase text-lg">Add Profile</p>
+        </div>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] bg-black">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
+          <DialogTitle>Añadir profile</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
+            Añade los diferentes perfiles que tienes en tu cuenta de Netflix
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input
-              id="name"
-              defaultValue="Pedro Duarte"
-              className="col-span-3"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input
-              id="username"
-              defaultValue="@peduarte"
-              className="col-span-3"
-            />
-          </div>
-        </div>
-        <DialogFooter>
-          <Button type="submit">Save changes</Button>
-        </DialogFooter>
+        <FormAddProfile setOpen={setOpen} />
+        <DialogFooter></DialogFooter>
       </DialogContent>
     </Dialog>
-  )
+  );
 }
-
- 

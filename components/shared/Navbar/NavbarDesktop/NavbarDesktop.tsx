@@ -6,7 +6,13 @@ import Logo from "@/components/shared/Logo/Logo";
 import { itemsNavbar } from "@/data/itemsNavbar";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import Link from "next/link";
-const NavbarDesktop = () => {
+import { NavbarDesktopProps } from "./NavbarDesktop.type";
+import SelectorProfile from "@/components/shared/SelectorProfile/SelectorProfile";
+
+
+
+const NavbarDesktop = (props: NavbarDesktopProps) => {
+  const { users } = props;
   const scrollPosition = useScrollPosition();
   console.log(scrollPosition);
   return (
@@ -36,7 +42,8 @@ const NavbarDesktop = () => {
             <Search />
             <BellRing />
             <div className="flex gap-2 items-center">
-              <p>user</p>
+            
+              <SelectorProfile users={users} />
             </div>
           </div>
         </div>
