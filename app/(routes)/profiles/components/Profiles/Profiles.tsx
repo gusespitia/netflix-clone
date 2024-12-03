@@ -28,7 +28,7 @@ const Profiles = (props: ProfilesProps) => {
   const [manageProfiles, setManageProfiles] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { changeCurrentUser, currentUser } = useCurrentNetflixUser();
-  console.log(currentUser);
+
   const onClickUser = (user: UserNetflix) => {
     changeCurrentUser(user);
     router.push("/");
@@ -50,7 +50,7 @@ const Profiles = (props: ProfilesProps) => {
       });
     }
   };
-  console.log({ users });
+
   return (
     <div>
       <div className="flex gap-7">
