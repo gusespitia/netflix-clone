@@ -13,14 +13,9 @@ const MovieVideo = (props: MovieVideoProps) => {
       width="100%"
       height="100%"
       playing={true}
-      muted={true}
+      muted={false}
       controls={true}
       pip={true}
-      light={true}
-      resolution="1080p"
-
-
-
     />
   );
 };
