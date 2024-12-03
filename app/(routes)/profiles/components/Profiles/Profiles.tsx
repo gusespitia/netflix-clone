@@ -19,12 +19,21 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-
+import { useCurrentNetflixUser } from "@/hooks/use-current-user";
+import { UserNetflix } from "@prisma/client";
 
 const Profiles = (props: ProfilesProps) => {
   const router = useRouter();
   const { users } = props;
   const [manageProfiles, setManageProfiles] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { changeCurrentUser, currentUser } = useCurrentNetflixUser();
+  console.log(currentUser);
+  const onClickUser = (user: UserNetflix) => {
+    changeCurrentUser(user);
+    router.push("/");
+  };
+
   const deleteUser = async (userIdNetflix: string) => {
     try {
       axios.delete("/api/userNetflix", { data: { userIdNetflix } });
@@ -32,8 +41,7 @@ const Profiles = (props: ProfilesProps) => {
       router.refresh();
       toast({
         title: "¡Usuario eliminado correctamente!",
-      })
-     
+      });
     } catch (error) {
       console.log(error);
       toast({
@@ -47,7 +55,11 @@ const Profiles = (props: ProfilesProps) => {
     <div>
       <div className="flex gap-7">
         {users.map((user) => (
-          <div key={user.id} className="text-center relative cursor-pointer">
+          <div
+            key={user.id}
+            className="text-center relative cursor-pointer"
+            onClick={() => onClickUser(user)}
+          >
             <Image
               src={user.avatarUrl || ""}
               alt={`Profile ${user.profileName}`}
@@ -84,7 +96,9 @@ const Profiles = (props: ProfilesProps) => {
                     <AlertDialogAction
                       className="bg-red-500 border-red-500 border"
                       onClick={() => deleteUser(user.id)}
-                    >Delete</AlertDialogAction>
+                    >
+                      Delete
+                    </AlertDialogAction>
                   </AlertDialogFooter>
                 </AlertDialogContent>
               </AlertDialog>

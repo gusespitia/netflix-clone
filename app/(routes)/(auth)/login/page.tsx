@@ -1,19 +1,21 @@
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 import Link from "next/link";
-
 import { Checkbox } from "@/components/ui/checkbox";
 import LoginForm from "./LoginForm/LoginForm";
 import Terms from "../components/Terms/Terms";
-import { auth } from "@/auth";
-
-
 
 export default async function LoginPage() {
   const session = await auth();
+
+  if (session) {
+    redirect("/");
+  }
+
   return (
     <div>
       <p className="text-3xl font-bold text-left mb-7">Iniciar sesión</p>
-<p>session {JSON.stringify(session)}</p>
-    <LoginForm />
+      <LoginForm />
       <div className="mt-5 text-center">
         <Link href="/" className="hover:underline hover:opacity-70">
           ¿Has olvidado tu contraseña?

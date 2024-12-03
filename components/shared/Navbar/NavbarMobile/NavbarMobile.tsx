@@ -3,8 +3,11 @@ import Logo from "../../Logo/Logo";
 import { itemsNavbar } from "@/data/itemsNavbar";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Link from "next/link";
+import { NavbarMobileProps } from "./NavbarMobile.type";
+import SelectorProfile from "../../SelectorProfile/SelectorProfile";
 
-const NavbarMobile = () => {
+const NavbarMobile = (props: NavbarMobileProps) => {
+  const { users } = props;
   return (
     <div className="p-4 flex justify-between">
       <Logo />
@@ -28,7 +31,7 @@ const NavbarMobile = () => {
           <div className="flex justify-between gap-6 mt-4">
             <Search className="cursor-pointer" />
             <BellRing className="cursor-pointer" />
-            <p>user</p>
+           <SelectorProfile users={users} />
           </div>
         </SheetContent>
       </Sheet>

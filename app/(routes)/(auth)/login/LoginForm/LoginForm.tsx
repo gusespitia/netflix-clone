@@ -19,7 +19,6 @@ import { Input } from "@/components/ui/input";
 import { login } from "@/actions/login";
 import { useRouter } from "next/navigation";
 import FormError from "./FormError/FormError";
-import { signOut } from "next-auth/react";
 import { toast } from "@/hooks/use-toast";
 
 const LoginForm = () => {
@@ -48,14 +47,12 @@ const LoginForm = () => {
           router.push("/profiles");
         }
       });
-      
     } catch (error) {
       console.log(error);
     }
   };
   return (
     <Form {...form}>
-           <Button onClick={()=>signOut()}>Logout</Button>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className="w-full gap-4 flex flex-col"
@@ -83,20 +80,22 @@ const LoginForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input type="password" placeholder="Password" className="h-14 text-white" {...field} />
+                <Input
+                  type="password"
+                  placeholder="Password"
+                  className="h-14 text-white"
+                  {...field}
+                />
               </FormControl>
-              <FormDescription>
-                This is your secret password.
-              </FormDescription>
+              <FormDescription>This is your secret password.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-       <FormError message={errors} />
+        <FormError message={errors} />
         <Button type="submit" className="w-full bg-[#E50914]">
           Iniciar Sesion
         </Button>
-   
       </form>
     </Form>
   );
