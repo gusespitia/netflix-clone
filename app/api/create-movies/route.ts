@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   const { movies } = await req.json();
+  console.log(movies);
 
   if (!movies || !Array.isArray(movies) || movies.length === 0) {
     return new NextResponse("Movies data is required", { status: 400 });
@@ -10,6 +11,7 @@ export async function POST(req: Request) {
 
   try {
     const createdMovies = await Promise.all(
+      
       movies.map(async (movie) => {
         const {
           id,
@@ -51,8 +53,10 @@ export async function POST(req: Request) {
     );
 
     return NextResponse.json(createdMovies, { status: 201 });
+    
   } catch (error) {
     console.log(error);
     return new NextResponse("Internal Error", { status: 500 });
   }
+   
 }
