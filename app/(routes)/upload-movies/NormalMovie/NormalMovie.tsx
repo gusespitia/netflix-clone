@@ -3,8 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Upload } from "lucide-react";
 import { useState } from "react";
 import axios from "axios";
-import { dataMovies } from "@/data/data-movies/NormalMovie.data";
-
+import { dataMovies } from "./NormalMovie.data";
 import { toast } from "@/hooks/use-toast";
 
 const NormalMovie = () => {
