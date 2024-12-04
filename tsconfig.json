@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "data/data-movies/NormalMovie.data.ts.old"  ],
   "exclude": [
     "node_modules"
   ]
