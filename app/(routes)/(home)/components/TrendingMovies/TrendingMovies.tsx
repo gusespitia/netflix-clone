@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { TrendingMoviesProps } from "./TrendingMovies.types";
 import { InfoExtraFilm } from "./InfoExtraFilm";
+import Link from "next/link";
 
 export function TrendingMovies(props: TrendingMoviesProps) {
   const { movies } = props;
@@ -16,27 +17,30 @@ export function TrendingMovies(props: TrendingMoviesProps) {
           {movies.map((movie) => (
             <div
               key={movie.id}
-              className="flcursor-pointer transition delay-300 hover:h-[14vh] group relative"
+              className="cursor-pointer transition delay-300 hover:h-[14vh] group relative"
             >
-              <div
-                className="flex transition duration 
+              <Link href={`/movie/${movie.id}`}>
+                <div
+                  className="flex transition duration 
               group-hover:opacity-90 delay-300 w-full justify-center"
-              >
-                <Image
-                  src={`https://raw.githubusercontent.com/gusespitia/netflix-clone/refs/heads/main/data/ranking/${movie.ranking}.png`}
-                  alt="Number"
-                  width={116}
-                  height={150}
-                  className="h-auto w-auto lg:max-h-full"
-                />
-                <Image
-                  src={movie.thumbnailUrl}
-                  alt="Image"
-                  width={116}
-                  height={150}
-                  className="h-auto w-auto md:max-h-[180px] lg:max-h-full"
-                />
-              </div>
+                >
+                  <Image
+                    src={`https://raw.githubusercontent.com/gusespitia/netflix-clone/refs/heads/main/data/ranking/${movie.ranking}.png`}
+                    alt="Number"
+                    width={116}
+                    height={150}
+                    className="h-auto w-auto lg:max-h-full"
+                  />
+
+                  <Image
+                    src={movie.thumbnailUrl}
+                    alt="Image"
+                    width={116}
+                    height={150}
+                    className="h-auto w-auto md:max-h-[180px] lg:max-h-full"
+                  />
+                </div>
+              </Link>
               <InfoExtraFilm movie={movie} />
             </div>
           ))}

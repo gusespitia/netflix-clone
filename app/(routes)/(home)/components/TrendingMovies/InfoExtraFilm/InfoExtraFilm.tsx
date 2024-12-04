@@ -25,12 +25,19 @@ export function InfoExtraFilm(props: InfoExtraFilmProps) {
       <div className="aspect-video">
         <ReactPlayer
           url={movie.trailerVideo}
-          loop={true}
+          playing={false}
+          controls
           width="100%"
           height="100%"
-          playing={true}
-          muted={true}
-          controls={false}
+          config={{
+            youtube: {
+              playerVars: {
+                origin: window.location.origin, // Asegura que el origen sea consistente
+                modestbranding: 1, // Opcional: reduce la marca de YouTube
+                rel: 0, // Opcional: desactiva videos relacionados
+              },
+            },
+          }}
         />
       </div>
 
