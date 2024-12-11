@@ -20,7 +20,7 @@ export function SliderVideo() {
       >
         <div className="pt-24 md:pt-0">
           <h2 className="text-2xl md:text-5xl lg:text-8xl font-bold drop-shadow-xl">
-            GusDev
+            GUSFLIX
           </h2>
           <p className="max-w-md mt-2 text-xs md:text-base">
             Aprende a crear desde cero un clon de Netflix con todas sus
