@@ -10,7 +10,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormMessage,
@@ -55,7 +54,7 @@ const LoginForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="w-full gap-4 flex flex-col"
+        className="flex flex-col gap-4 w-full"
       >
         <FormField
           control={form.control}
@@ -66,10 +65,10 @@ const LoginForm = () => {
                 <Input
                   placeholder="Email"
                   {...field}
-                  className="h-14 text-white"
+                  className="h-10 text-white"
                 />
               </FormControl>
-              <FormDescription>This is your email address.</FormDescription>
+        
               <FormMessage />
             </FormItem>
           )}
@@ -83,17 +82,16 @@ const LoginForm = () => {
                 <Input
                   type="password"
                   placeholder="Password"
-                  className="h-14 text-white"
+                  className="h-10 text-white"
                   {...field}
                 />
-              </FormControl>
-              <FormDescription>This is your secret password.</FormDescription>
+              </FormControl>       
               <FormMessage />
             </FormItem>
           )}
         />
         <FormError message={errors} />
-        <Button type="submit" className="w-full bg-[#E50914]">
+        <Button type="submit" className="bg-[#E50914] w-full">
           Iniciar Sesion
         </Button>
       </form>

@@ -57,20 +57,20 @@ const Profiles = (props: ProfilesProps) => {
         {users.map((user) => (
           <div
             key={user.id}
-            className="text-center relative cursor-pointer"
+            className="relative text-center cursor-pointer"
             onClick={() => onClickUser(user)}
           >
             <Image
               src={user.avatarUrl || ""}
               alt={`Profile ${user.profileName}`}
-              width={140}
-              height={140}
+              width={100}
+              height={100}
               className={cn(
                 manageProfiles ? "blur-md" : "",
                 "border-transparent rounded-md hover:border-white hover:border-2"
               )}
             />
-            <p className="mt-2 to-gray-500 uppercase text-lg">
+            <p className="to-gray-500 mt-2 text-lg uppercase">
               {user.profileName}
             </p>
             <div
@@ -81,7 +81,7 @@ const Profiles = (props: ProfilesProps) => {
             >
               <AlertDialog>
                 <AlertDialogTrigger asChild>
-                  <div className="bg-white rounded-full p-1 hover:bg-red-100">
+                  <div className="bg-white hover:bg-red-100 p-1 rounded-full">
                     <Trash2 className="w-6 h-6 text-red-500" />
                   </div>
                 </AlertDialogTrigger>
@@ -94,7 +94,7 @@ const Profiles = (props: ProfilesProps) => {
                   <AlertDialogFooter>
                     <AlertDialogCancel>Go Back</AlertDialogCancel>
                     <AlertDialogAction
-                      className="bg-red-500 border-red-500 border"
+                      className="bg-red-500 border border-red-500"
                       onClick={() => deleteUser(user.id)}
                     >
                       Delete
@@ -108,7 +108,7 @@ const Profiles = (props: ProfilesProps) => {
         <AddProfile />
       </div>
 
-      <div className="mt-16 flex items-center justify-center">
+      <div className="flex justify-center items-center mt-6">
         <Button
           variant="outline"
           size="lg"

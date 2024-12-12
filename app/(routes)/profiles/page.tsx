@@ -8,18 +8,20 @@ export default async function ProfilePage() {
   if (!session?.user) {
     redirect("/login");
   }
-  const userNetflix= await db.userNetflix.findMany({
+  const userNetflix = await db.userNetflix.findMany({
     where: {
-      userId: session.user.id
-    }
+      userId: session.user.id,
+    },
   });
 
-
-  return <div className="h-full flex flex-col justify-center items-center bg-zinc-900">
-    <div className="">
-  
-      <h1 className="text-5xl mb-8 font-bold">Quien eres? elije tu perfil</h1>
-   <Profiles users={userNetflix}/>
-   </div>
-  </div>;
+  return (
+    <div className="flex flex-col justify-center items-center bg-zinc-900 min-h-screen text-white">
+      <div className="mx-auto max-w-lg text-center">
+        <h1 className="mb-8 font-bold text-2xl tracking-tight">
+          ¿Quién eres? <span className="block">Elige tu perfil</span>
+        </h1>
+        <Profiles users={userNetflix} />
+      </div>
+    </div>
+  );
 }

@@ -6,16 +6,16 @@ export default function AuthLayouth({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="h-full ">
-      <div className="h-full relative">
-        <div className="bg-black h-full  w-full -z-10 min-h-screen absolute">
-          <div className="bg-[url('/login-bg.jpg')]  h-full opacity-40 bg-no-repeat bg-cover" />
+    <div className="h-full">
+      <div className="relative h-full">
+        <div className="-z-10 absolute bg-black w-full h-full min-h-screen">
+          <div className="bg-[url('/login-bg.jpg')] bg-cover bg-no-repeat opacity-40 h-full" />
         </div>
-        <div className="px-8 py-5 max-w-7xl mx-auto">
+        <div className="mx-auto px-8 py-5 max-w-7xl">
           <Logo />
         </div>
-        <div className="h-full w-full max-w-md mx-auto ">
-          <div className="bg-black px-14 py-16 rounded-lg">{children }</div>
+        <div className="mx-auto w-full max-w-md h-full">
+          <div className="bg-black px-14 py-6 rounded-lg">{children }</div>
         </div>
       </div>
     </div>

@@ -19,14 +19,14 @@ export default function AddProfile() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <div className="group cursor-pointer">
-          <div className="w-[140px] h-[140px] flex flex-col justify-center items-center group-hover:bg-slate-300 rounded-md">
+        <div className="cursor-pointer group">
+          <div className="group-hover:bg-slate-300 flex flex-col justify-center items-center mb-3 rounded-md w-[100px] h-[100px]">
             <PlusCircle className="w-16 h-16 text-gray-500" />
           </div>
-          <p className="text-gray-500 uppercase text-lg">Add Profile</p>
+          <p className="text-base text-gray-500 uppercase">Add Profile</p>
         </div>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] bg-black">
+      <DialogContent className="bg-black sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Añadir profile</DialogTitle>
           <DialogDescription>
