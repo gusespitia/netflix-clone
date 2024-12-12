@@ -1,3 +1,5 @@
+
+import { Analytics } from "@vercel/analytics/react"
 import type { Metadata } from "next";
 import NextTopLoader from 'nextjs-toploader';
 import localFont from "next/font/local";
@@ -21,7 +23,9 @@ export const metadata: Metadata = {
   keywords: "nextjs, tailwind, react",
 };
 
+
 export default function RootLayout({
+
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -34,6 +38,7 @@ export default function RootLayout({
       <NextTopLoader />
         {children}
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );
