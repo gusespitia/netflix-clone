@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import {
@@ -47,14 +48,14 @@ export function CarouselMovie(props: CarouselMovieProps) {
 
   return (
     <Carousel className="w-full">
-      <CarouselContent className="-ml-1 gap-2 overflow-inherit">
+      <CarouselContent className="gap-2 -ml-1 overflow-inherit">
         {movies.map((movie) => (
           <CarouselItem
             key={movie.id}
-            className="pl-1 md:basis-1/2 lg:basis-1/5 transition delay-300 group relative py-16"
+            className="relative py-16 pl-1 transition delay-300 group md:basis-1/2 lg:basis-1/5"
           >
-            <Card className="cursor-pointer transition delay-300 group relative">
-              <CardContent className="flex aspect-video items-center justify-center p-6 relative border-none rounded-md bg-zinc-900">
+            <Card className="relative transition delay-300 cursor-pointer group">
+              <CardContent className="relative flex justify-center items-center bg-zinc-900 p-6 border-none rounded-md aspect-video">
                 <Image
                   src={movie.thumbnailUrl}
                   alt="Image"
@@ -81,9 +82,9 @@ export function CarouselMovie(props: CarouselMovieProps) {
                     alt="Movie"
                     width={200}
                     height={200}
-                    className="cursor-pointer object-cover transition-all duration-300 shadow-xl w-full rounded-t-lg"
+                    className="shadow-xl rounded-t-lg w-full transition-all duration-300 cursor-pointer object-cover"
                   />
-                  <div className="p-2 shadow-lg">
+                  <div className="shadow-lg p-2">
                     <ActionsButtons
                       movieId={movie.id}
                       movie={movie}
