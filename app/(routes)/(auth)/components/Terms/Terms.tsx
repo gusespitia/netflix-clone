@@ -6,7 +6,7 @@ const Terms = () => {
   const [showExtraTerms, setShowExtraTerms] = useState(false);
   return (
     <div className="mt-4 mb-10 max-w-72 text-gray-600 text-xs">
-      <div className="mb-5">
+      <div className="mb-4">
         <span>
           Esta Página utiliza Google reCaptcha para verificar que eres un
           humano. Si no es un humano, no puedes ingresar.

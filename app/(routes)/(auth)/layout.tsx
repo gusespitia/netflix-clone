@@ -20,8 +20,8 @@ export default function AuthLayout({
       <div className="relative mx-auto px-8 py-5 max-w-7xl">
         <Logo />
       </div>
-      <div className="relative flex justify-center items-center mx-auto w-full max-w-md min-h-screen">
-        <div className="bg-black px-14 py-6 rounded-lg">{children}</div>
+      <div className="relative flex justify-center items-start mx-auto w-full max-w-md min-h-screen">
+        <div className="bg-black px-14 pt-4 rounded-lg">{children}</div>
       </div>
     </div>
   );
