@@ -48,11 +48,11 @@ export function CarouselMovie(props: CarouselMovieProps) {
 
   return (
     <Carousel className="w-full">
-      <CarouselContent className="gap-2 -ml-1 overflow-inherit">
+      <CarouselContent className="gap-4 -ml-1 overflow-inherit">
         {movies.map((movie) => (
           <CarouselItem
             key={movie.id}
-            className="relative py-16 pl-1 transition delay-300 group md:basis-1/2 lg:basis-1/5"
+            className="relative py-14 pl-1 transition delay-300 group md:basis-1/2 lg:basis-1/5"
           >
             <Card className="relative transition delay-300 cursor-pointer group">
               <CardContent className="relative flex justify-center items-center bg-zinc-900 p-6 border-none rounded-md aspect-video">
@@ -61,18 +61,18 @@ export function CarouselMovie(props: CarouselMovieProps) {
                   alt="Image"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="rounded-md"
+                  className="rounded-sm"
                   priority
                   onClick={() => handleClick(movie.id)}
                 />
                 <div
-                  className={`absolute top-0 transition-all duration-300 z-50 w-full bg-zinc-900 rounded-lg 
+                  className={`absolute top-0 transition-all duration-300 z-50 w-full bg-zinc-900 rounded-md 
                     ${
                       isMobile
                         ? activeMovieId === movie.id
                           ? "opacity-100 scale-105 -translate-y-[8vw]"
                           : "opacity-0 scale-0"
-                        : "opacity-0 scale-0 group-hover:scale-105 group-hover:-translate-y-[8vw] group-hover:opacity-100"
+                        : "opacity-0 scale-0 group-hover:scale-105 group-hover:-translate-y-[4vw] group-hover:opacity-100"
                     }
                   `}
                   // Hacer clic sobre la imagen
@@ -80,9 +80,9 @@ export function CarouselMovie(props: CarouselMovieProps) {
                   <Image
                     src={movie.thumbnailUrl}
                     alt="Movie"
-                    width={200}
-                    height={200}
-                    className="shadow-xl rounded-t-lg w-full transition-all duration-300 cursor-pointer object-cover"
+                    width={300}
+                    height={260}
+                    className="rounded-md w-auto h-auto md:max-h-[180px] lg:max-h-full"
                   />
                   <div className="shadow-lg p-2">
                     <ActionsButtons
