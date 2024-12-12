@@ -5,18 +5,18 @@ export const itemsNavbar = [
   },
   {
     name: "Series",
-    link: "/series",
+    link: "/",
   },
   {
     name: "Películas",
-    link: "/movies",
+    link: "/",
   },
   {
     name: "Novedades más recientes",
-    link: "/more-news",
+    link: "/",
   },
   {
     name: "Mi Lista",
-    link: "/my-list",
+    link: "/",
   },
 ];
