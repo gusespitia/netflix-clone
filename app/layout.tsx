@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico", // Ruta al favicon
+    icon: "/favicon.ico", 
   },
 };
 
